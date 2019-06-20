@@ -4,7 +4,12 @@ const {Products} = require('../models/Products');
 
 module.exports = (app, next) => {
 app.get('/products', (req, res) => {
+    console.log(req.body)
+
     Products.find({}, (err, products) => {
+         if (err) {
+            return err
+        }
         res.send(products);
     });
 });
@@ -20,5 +25,15 @@ app.post('/products', (req, res) => {
         res.send(data)
     }); 
 }); 
+
+app.get('/products/:id', (req, res) => {
+    Products.find({_id: req.params.id},(err, data) => {
+        if (err) {
+            return err
+        }
+        res.send(data)
+    }); 
+}); 
+
 return next(); 
 }
