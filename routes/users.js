@@ -11,9 +11,7 @@ const {
   buildLinkHeader,
 } = require('../lib/util');
 
-
 const omitPrivateProps = createPrivatePropsFilter(['password']);
-
 
 const initAdminUser = (app, next) => {
   const { adminEmail, adminPassword } = app.get('config');

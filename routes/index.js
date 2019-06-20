@@ -1,6 +1,6 @@
 const auth = require('./auth');
 const users = require('./users');
-
+const products = require('./products'); 
 
 const root = (app, next) => {
   const pkg = app.get('pkg');
@@ -27,5 +27,6 @@ const register = (app, routes, cb) => {
 module.exports = (app, next) => register(app, [
   auth,
   users,
+  products,
   root,
 ], next);

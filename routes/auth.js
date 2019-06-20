@@ -1,10 +1,8 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-
 module.exports = (app, next) => {
   const { secret } = app.get('config');
-
   /*
    * Ruta de autenticación usando email y password
    * Toda autenticación se hace a través de POST, ya que de esta forma nos 
